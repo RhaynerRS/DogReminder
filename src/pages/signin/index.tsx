@@ -9,7 +9,7 @@ export function SignIn() {
   const navigation = useNavigation();
 
   function SignInHandle() {
-    navigation.navigate("Home" as never);
+    navigation.navigate("Form" as never);
   }
 
   return (

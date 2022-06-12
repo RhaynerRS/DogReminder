@@ -1,4 +1,4 @@
-import { View, Text, Image } from "react-native";
+import { View, Text, Image} from "react-native";
 import { RectButtonProps, RectButton } from "react-native-gesture-handler";
 import { styles } from "./styles";
 import { SvgProps } from "react-native-svg";
@@ -19,13 +19,17 @@ type Props = RectButtonProps & {
   breed: string;
   icon: React.FC<SvgProps>;
   end: any;
+  petid:number;
+  weight:number;
+  birthdate: number;
+  color: string;
 };
 
-export function Pet({ name, breed, icon: Icon, end, ...rest }: Props) {
+export function Pet({ name, breed, icon: Icon, end,petid,weight,birthdate,color, ...rest }: Props) {
   const navigation = useNavigation();
 
   function PetHandle() {
-    navigation.navigate("Details" as never);
+    navigation.navigate("Details",{name,breed,petid,weight,birthdate,color})
   }
 
   return (

@@ -3,6 +3,7 @@ import { Home } from "../pages/home/index";
 import { Form } from "../pages/form/index";
 import { SignIn } from "../pages/signin";
 import { Details } from "../pages/details";
+import { AllBreeds } from "../pages/allBreeds";
 import { Tabs } from "../components/tabs";
 
 const Stack = createStackNavigator();
@@ -21,6 +22,7 @@ export function AuthRoutes() {
       <Stack.Screen name={"Form"} component={Form} />
       <Stack.Screen name={"Home"} component={Home} />
       <Stack.Screen name={"Details"} component={Details} />
+      <Stack.Screen name={"AllBreeds"} component={AllBreeds} />
     </Stack.Navigator>
   );
 }

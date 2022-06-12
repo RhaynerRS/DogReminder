@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Image, StyleSheet, Text, View, ScrollView } from "react-native";
 import { styles } from "./style";
 import { useNavigation } from "@react-navigation/native";
@@ -10,16 +10,22 @@ import {
   faDog,
 } from "@fortawesome/free-solid-svg-icons";
 import { PetSelect } from "../../components/petSelect";
+import { BreedSelect } from "../../components/breedSelect";
 
 export function Home() {
+
   const [category, setCategory] = useState("");
-  function handleCategorySelect(categoryId: string) {
+  function handleCategorySelect(categoryId) {
     categoryId === category ? setCategory("") : setCategory(categoryId);
   }
   const navigation = useNavigation();
 
   function SignInHandle() {
-    navigation.navigate("Form" as never);
+    navigation.navigate("Form");
+  }
+
+  function AllBreedsHandle() {
+    navigation.navigate("AllBreeds");
   }
 
   return (
@@ -27,24 +33,25 @@ export function Home() {
       <View style={styles.header}>
         <FontAwesomeIcon icon={faPaw} size={35} style={{ color: "#fff" }} />
       </View>
-      <View >
+      <View>
         <Text style={styles.titles}>My pets</Text>
         <PetSelect end={{ x: 0.3, y: -0.8 }}></PetSelect>
       </View>
       <View style={styles.content}>
         <View
           style={{
+            width: '100%',
             flexDirection: "row",
             justifyContent: "space-between",
             alignItems: "center",
           }}
         >
           <Text style={[styles.titles, { color: "#3048EA" }]}>Explore</Text>
-          <Text style={{ marginRight: 35, color: "#EF6C6A" }}>
+          <Text style={{ marginRight: 35, color: "#EF6C6A" }} onPress={() =>AllBreedsHandle()}>
             Show All {">>"}
           </Text>
         </View>
-        <PetSelect end={{ x: -1, y: -1 }}></PetSelect>
+        <BreedSelect/>
       </View>
     </View>
   );

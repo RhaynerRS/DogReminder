@@ -10,6 +10,7 @@ import {
   faBowlFood,
   faDog,
 } from "@fortawesome/free-solid-svg-icons";
+import { Details } from "../../pages/details";
 
 const Tab = createBottomTabNavigator();
 var color = "#d5d5d5";
@@ -31,8 +32,8 @@ export function Tabs() {
       }}
     >
       <Tab.Screen
-        name="Home"
-        component={Home}
+        name="Details"
+        component={Details}
         options={{
           tabBarIcon: ({ focused }) => (
             <View

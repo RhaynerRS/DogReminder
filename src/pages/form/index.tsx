@@ -28,8 +28,8 @@ export function Form() {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        nameUser: user,
-        passwordUser: password,
+        nameUser: "login",
+        passwordUser: "123",
       }),
     });
     let ress = await reqs.json();
