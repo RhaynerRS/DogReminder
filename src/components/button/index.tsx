@@ -9,12 +9,10 @@ type Props= RectButtonProps &{
 }
 export function Button({title, ...rest}:Props){
     return (
-        <RectButton {...rest}>
-            <LinearGradient style={styles.gradient} colors={['#7989EE','#3048EA']}>
+        <RectButton style={styles.container} {...rest}>
                 <Text style={styles.title}>
                     {title}
                 </Text>
-            </LinearGradient>
         </RectButton>
         
     );
