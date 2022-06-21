@@ -9,14 +9,12 @@ import {
   Poppins_500Medium,
   Poppins_700Bold,
 } from "@expo-google-fonts/poppins";
-import { useEffect, useState } from "react";
-import { AsyncStorage } from 'react-native';
 
 LogBox.ignoreLogs([
   "[react-native-gesture-handler] Seems like you're using an old API with gesture components, check out new Gestures system!",
 ]);
 
-export  function App() {
+export default function App() {
   const [fontsLoaded] = useFonts({
     Poppins_300Light,
     Poppins_400Regular,
