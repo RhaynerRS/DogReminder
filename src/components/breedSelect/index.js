@@ -15,22 +15,18 @@ export function BreedSelect() {
   useEffect(async () => {
     try {
       await fetch(`https://api-racas.herokuapp.com/`).then((response) => response.json())
-        .then((json) => {setBreeds(json)}).then(()=>{
-          setBreeds(breeds.sort(() => Math.random() - 0.5))
-          setFirstBreeds(breeds.slice(0, 5))
-        })
+        .then((json) => {setBreeds((json.sort(() => Math.random() - 0.5)).splice(0,5))})
     } catch (error) {
       console.log(error)
     }
-  }, [])
-  console.log(breeds)
+  }, []) 
   return (
     <ScrollView
       style={styles.container}
       showsVerticalScrollIndicator={false}
       contentContainerStyle={{ alignItems: 'center',justifyContent: 'center',marginBottom: 90}}
     >
-          {firstBreeds.map((breed,index)=><Breed key={index} breedName={breed.name}/>)}
+          {breeds.map((breed,index)=><Breed key={index} breedImage={breed.image.url} breedName={breed.name}/>)}
     </ScrollView>
   );
 }

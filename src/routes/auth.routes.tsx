@@ -23,6 +23,7 @@ export function AuthRoutes() {
       <Stack.Screen name={"Home"} component={Home} />
       <Stack.Screen name={"Details"} component={Details} />
       <Stack.Screen name={"AllBreeds"} component={AllBreeds} />
+      <Stack.Screen name={"Tabs"} component={Tabs} />
     </Stack.Navigator>
   );
 }

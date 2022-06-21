@@ -58,6 +58,7 @@ export function PetSelect({ end }: Props) {
             <Pet
               petid={pet.pet_id}
               end={end}
+              type={pet.pet_type}
               key={pet.pet_id}
               name={pet.pet_name}
               breed={pet.breed}

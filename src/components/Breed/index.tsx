@@ -8,12 +8,13 @@ import Paw from "../../assets/paw.png";
 
 type Props = {
   breedName: string;
+  breedImage: string;
 };
 
-export function Breed({ breedName, ...rest }: Props) {
+export function Breed({ breedName,breedImage, ...rest }: Props) {
   return (
     <View style={styles.breed} >
-        <Image source={Doggo} style={styles.image} resizeMode="stretch" />
+        <Image source={{uri:breedImage}||Doggo} style={styles.image} resizeMode="stretch" />
         <Text  style={styles.title}>{breedName}</Text>
     </View>
   );

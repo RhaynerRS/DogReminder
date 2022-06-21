@@ -48,7 +48,7 @@ export function AllBreeds() {
           showsVerticalScrollIndicator={false}
           contentContainerStyle={{ alignItems: 'center',justifyContent: 'center',marginBottom: 90}}
         >
-              {breeds.map((breed,index)=><Breed key={index} breedName={breed.name}/>)}
+              {breeds.map((breed,index)=><Breed key={index} breedImage={breed.image.url}breedName={breed.name}/>)}
         </ScrollView>
     </View>
   );

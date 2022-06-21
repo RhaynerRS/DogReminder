@@ -3,9 +3,9 @@ import { StyleSheet } from "react-native";
 export const styles = StyleSheet.create({
   container: {
     width: "80%",
-    height: 55,
+    height: 65,
     backgroundColor: "#000",
-    borderRadius: 10,
+    borderRadius: 15,
     flexDirection: "row",
     alignItems: "center",
     borderWidth: 2,
@@ -33,6 +33,6 @@ export const styles = StyleSheet.create({
   },
   icon: {
     width: 30,
-    height: 30,
+    height: 36,
   },
 });

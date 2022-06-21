@@ -8,19 +8,22 @@ export const styles = StyleSheet.create({
     textAlign: "center",
   },
   container: {
+    padding:20,
     flex: 1,
     backgroundColor: "#fff",
     alignItems: "center",
     justifyContent: "space-evenly",
   },
   image: {
-    width: 306,
+    width: 273,
     height: 364,
+    transform: [{ translateY:40}],
   },
   text: {
     fontSize: 16,
     fontFamily: "Poppins_300Light",
-    textAlign: "center",
+    textAlign: "left",
+    paddingHorizontal: 15,
     fontWeight: "200",
   },
 });

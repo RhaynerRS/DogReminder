@@ -51,8 +51,14 @@ export const styles=StyleSheet.create({
         marginRight:7,
         borderRadius:3,
     },
-    image:{
-        width:110,
-        height:120,
+    dog:{
+        width:120,
+        height:115,
+        transform: [{ translateY:8}]
+    },
+    cat:{
+        width:120,
+        height:80,
+        transform: [{ translateY:55}]
     }
 })

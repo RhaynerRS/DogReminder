@@ -3,7 +3,8 @@ import { RectButtonProps, RectButton } from "react-native-gesture-handler";
 import { styles } from "./styles";
 import { SvgProps } from "react-native-svg";
 import React from "react";
-import Doggo from "../../assets/doggo.png";
+import Doggo from "../../assets/dog_template.png";
+import Catto from "../../assets/cat_template.png";
 import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
 import {
   faPaw,
@@ -23,15 +24,16 @@ type Props = RectButtonProps & {
   weight:number;
   birthdate: number;
   color: string;
+  type: string;
 };
 
-export function Pet({ name, breed, icon: Icon, end,petid,weight,birthdate,color, ...rest }: Props) {
+export function Pet({ name, breed, icon: Icon, end,petid,weight,birthdate,color,type, ...rest }: Props) {
   const navigation = useNavigation();
 
   function PetHandle() {
-    navigation.navigate("Details",{name,breed,petid,weight,birthdate,color})
+    navigation.navigate("Details" as never,{name,breed,petid,weight,birthdate,color,type} as never)
   }
-
+  console.log(type);
   return (
     <RectButton {...rest} style={{ marginLeft: 12, borderRadius: 25 }} onPress={PetHandle}>
       <LinearGradient
@@ -46,7 +48,7 @@ export function Pet({ name, breed, icon: Icon, end,petid,weight,birthdate,color,
           style={{ color: "#F5F5F5", position: "absolute" }}
         />
         <View style={styles.content}>
-          <Image source={Doggo} style={styles.image} resizeMode="stretch" />
+          <Image source={type=='Dog'?Doggo:Catto} style={type=='Dog'?styles.dog:styles.cat} resizeMode="stretch" />
           <View style={styles.data}>
             <Text style={styles.title}>{name}</Text>
             <Text style={styles.breed}>{breed}</Text>

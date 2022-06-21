@@ -1,5 +1,5 @@
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import { Image, StyleSheet, Text, View, ScrollView } from "react-native";
+import { Image, StyleSheet, Text, View, ScrollView, TouchableOpacity } from "react-native";
 import { Home } from "../../pages/home/index";
 import { Form } from "../../pages/form/index";
 import { SignIn } from "../../pages/signin";
@@ -10,78 +10,47 @@ import {
   faBowlFood,
   faDog,
 } from "@fortawesome/free-solid-svg-icons";
-import { Details } from "../../pages/details";
+import { styles } from "./styles";
+import { RectButton, TouchableWithoutFeedback } from "react-native-gesture-handler";
+import { useState } from "react";
 
 const Tab = createBottomTabNavigator();
 var color = "#d5d5d5";
 
-export function Tabs() {
+type Props = {
+  tab: any;
+};
+
+export function Tabs({tab}:Props) {
+  const[focus,setFocus]=useState('paw')
+  function changeTab(event:string) {
+    setFocus(event)
+    tab(event)
+  }
+
   return (
-    <Tab.Navigator
-      screenOptions={{
-        tabBarShowLabel: false,
-        headerShown: false,
-        tabBarStyle: {
-          position: "absolute",
-          bottom: 0,
-          elevation: 0,
-          backgroundColor: "#fff",
-          height: 100,
-          borderColor: "#fff",
-        },
-      }}
-    >
-      <Tab.Screen
-        name="Details"
-        component={Details}
-        options={{
-          tabBarIcon: ({ focused }) => (
-            <View
-              style={{ alignItems: "center", justifyContent: "center", top: 5 }}
-            >
-              <FontAwesomeIcon
-                icon={faPaw}
-                size={35}
-                style={{ color: focused ? "#3A9AF3" : "#7C7B82" }}
-              />
-            </View>
-          ),
-        }}
-      />
-      <Tab.Screen
-        name="Form"
-        component={Form}
-        options={{
-          tabBarIcon: ({ focused }) => (
-            <View
-              style={{ alignItems: "center", justifyContent: "center", top: 5 }}
-            >
-              <FontAwesomeIcon
-                icon={faDog}
-                size={35}
-                style={{ color: focused ? "#49A26B" : "#BECBC0" }}
-              />
-            </View>
-          ),
-        }}
-      />
-      <Tab.Screen
-        name="SignIn"
-        component={SignIn}
-        options={{
-          tabBarIcon: ({ focused }) => (
-            <View
-              style={{ alignItems: "center", justifyContent: "center", top: 5 }}
-            >
-              <FontAwesomeIcon
-                icon={faShop}
-                size={35}
-                style={{ color: focused ? "#49A26B" : "#BECBC0" }}
-              />
-            </View>
-          ),
-        }}
-      />
-    </Tab.Navigator>
+    <View style={styles.tabs}>
+      <TouchableWithoutFeedback style={styles.button} onPress={()=>{changeTab('paw')}}>
+        <FontAwesomeIcon
+          icon={faPaw}
+          size={35}
+          style={{ color: focus == 'paw' ? "#3048EA" : "#c5c5c9" }}
+        />
+      </TouchableWithoutFeedback>
+      <TouchableWithoutFeedback style={styles.button} onPress={()=>{changeTab('dog')}}>
+        <FontAwesomeIcon
+          icon={faDog}
+          size={35}
+          style={{ color: focus=='dog' ? "#3048EA" : "#c5c5c9" }}
+        />
+      </TouchableWithoutFeedback>
+      <TouchableWithoutFeedback style={styles.button} onPress={()=>{changeTab('food')}}>
+        <FontAwesomeIcon
+          icon={faBowlFood}
+          size={35}
+          style={{ color: focus == "food" ? "#3048EA" : "#c5c5c9" }}
+        />
+      </TouchableWithoutFeedback>
+    </View>
   );
 }
