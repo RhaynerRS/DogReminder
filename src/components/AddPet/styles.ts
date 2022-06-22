@@ -57,8 +57,8 @@ export const styles=StyleSheet.create({
         transform: [{ translateY:8}]
     },
     cat:{
-        width:100,
-        height:90,
-        transform: [{ translateY:30}]
+        width:120,
+        height:80,
+        transform: [{ translateY:55}]
     }
 })

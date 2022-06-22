@@ -47,7 +47,7 @@ export function Home() {
           }}
         >
           <Text style={[styles.titles, { color: "#3048EA" }]}>Explore</Text>
-          <Text style={{ marginRight: 35, color: "#EF6C6A" }} onPress={() =>AllBreedsHandle()}>
+          <Text style={{ marginRight: 35, color: "#ff564f" }} onPress={() =>AllBreedsHandle()}>
             Show All {">>"}
           </Text>
         </View>

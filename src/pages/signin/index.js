@@ -16,7 +16,7 @@ export function SignIn() {
     <View style={styles.container}>
       <Image source={Doggo} style={styles.image} resizeMode="stretch" />
       <>
-        <Text style={styles.title}>Seja bem vindo ao DogReminder!</Text>
+        <Text style={styles.title}>Seja bem vindo ao repaws!</Text>
         <Text style={styles.text}>O lugar para você aprender tudo sobre seu melhor amigo</Text>
       </>
       <Button title="Entrar Agora" onPress={SignInHandle} />

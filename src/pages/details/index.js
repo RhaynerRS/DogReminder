@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Image, Text, View } from "react-native";
 import Doggo from "../../assets/dog_details_template.png";
+import Catto from "../../assets/cat_details_template.png";
 import { styles } from "./style";
 import { useNavigation } from "@react-navigation/native";
 import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
@@ -68,18 +69,22 @@ export function Details({ route }) {
   function DetailsHandle() {
     navigation.navigate("Home");
   }
+  function EditPetHandle() {
+    navigation.navigate("EditPet");
+  }
+  let type=route.params.type;
   return (
-    <View style={styles.container}>
+    <View style={type=="Dog"?styles.containerDog:styles.containerCat}>
       <View style={styles.header}>
         <Text style={styles.backBut} onPress={DetailsHandle}>
           {"<"} my pets
         </Text>
-        <View style={styles.config}>
-          <FontAwesomeIcon icon={faGear} size={25} style={{ color: "#fff" }} />
+        <View style={styles.config} >
+          <FontAwesomeIcon icon={faGear} size={25} style={{ color: "#fff" }} onPress={EditPetHandle}/>
         </View>
       </View>
       <View style={styles.panel}>
-        <Image source={Doggo} style={styles.image} resizeMode="stretch" />
+        <Image source={type=="Dog"?Doggo:Catto} style={type=="Dog"?styles.imageDog:styles.imageCat} resizeMode="stretch" />
         <Text style={styles.title}>{route.params.name}</Text>
         <Text style={styles.text}>{route.params.breed}</Text>
         <Text style={styles.title}>{route.params.weight} Kg</Text>
@@ -90,35 +95,35 @@ export function Details({ route }) {
         tab == 'paw' ?
           <View style={styles.info}>
             <View style={styles.infoItem}>
-              <Text style={[styles.title, { color: "#3048EA" }]}>{breed != undefined ? breed[0].life_span.replace(' years', '') : '...'}</Text>
-              <Text style={[styles.text, { color: "#3048EA" }]}>Years</Text>
+              <Text style={[styles.title, { color: type=="Dog"?"#3048EA":"#ff564f" }]}>{breed != undefined ? breed[0].life_span.replace(' years', '') : '...'}</Text>
+              <Text style={[styles.text, { color:  type=="Dog"?"#3048EA":"#ff564f" }]}>Years</Text>
             </View>
             <View style={styles.infoItem}>
-              <Text style={[styles.title, { color: "#3048EA" }]}>{breed != undefined ? breed[0].weight.metric : '...'}</Text>
-              <Text style={[styles.text, { color: "#3048EA" }]}>Kg</Text>
+              <Text style={[styles.title, { color: type=="Dog"?"#3048EA":"#ff564f" }]}>{breed != undefined ? breed[0].weight.metric : '...'}</Text>
+              <Text style={[styles.text, { color:  type=="Dog"?"#3048EA":"#ff564f" }]}>Kg</Text>
             </View>
             <View style={styles.infoItem}>
-              <Text style={[styles.title, { color: "#3048EA" }]}>{breed != undefined ? breed[0].height.metric : '...'}</Text>
-              <Text style={[styles.text, { color: "#3048EA" }]}>CM</Text>
+              <Text style={[styles.title, { color: type=="Dog"?"#3048EA":"#ff564f" }]}>{breed != undefined ? breed[0].height.metric : '...'}</Text>
+              <Text style={[styles.text, { color:  type=="Dog"?"#3048EA":"#ff564f" }]}>CM</Text>
             </View>
           </View>
           :
           tab == 'dog' ?
             <View style={styles.info}>
               <View style={styles.infoItem}>
-                <Text style={[styles.title, { color: "#3048EA" }]}>{breed != undefined ? breed[0].life_span.replace(' years', '') : '...'}</Text>
-                <Text style={[styles.text, { color: "#3048EA" }]}>Years</Text>
+                <Text style={[styles.title, { color: type=="Dog"?"#3048EA":"#ff564f" }]}>{breed != undefined ? breed[0].life_span.replace(' years', '') : '...'}</Text>
+                <Text style={[styles.text, { color:  type=="Dog"?"#3048EA":"#ff564f" }]}>Years</Text>
               </View>
             </View>
             :
             <View style={styles.info}>
               <View style={styles.infoItem}>
-              <Text style={[styles.title, { color: "#3048EA" }]}>{feed}</Text>
-                <Text style={[styles.text, { color: "#3048EA" }]}>Gr/Day</Text>
+              <Text style={[styles.title, { color: type=="Dog"?"#3048EA":"#ff564f" }]}>{feed}</Text>
+                <Text style={[styles.text, { color:  type=="Dog"?"#3048EA":"#ff564f" }]}>Gr/Day</Text>
               </View>
               <View style={styles.infoItem}>
-                <Text style={[styles.title, { color: "#3048EA" }]}>{water}</Text>
-                <Text style={[styles.text, { color: "#3048EA" }]}>Ml/Day</Text>
+                <Text style={[styles.title, { color: type=="Dog"?"#3048EA":"#ff564f" }]}>{water}</Text>
+                <Text style={[styles.text, { color:  type=="Dog"?"#3048EA":"#ff564f" }]}>Ml/Day</Text>
               </View>
             </View>
       }

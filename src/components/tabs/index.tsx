@@ -1,4 +1,3 @@
-import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { Image, StyleSheet, Text, View, ScrollView, TouchableOpacity } from "react-native";
 import { Home } from "../../pages/home/index";
 import { Form } from "../../pages/form/index";
@@ -13,9 +12,6 @@ import {
 import { styles } from "./styles";
 import { RectButton, TouchableWithoutFeedback } from "react-native-gesture-handler";
 import { useState } from "react";
-
-const Tab = createBottomTabNavigator();
-var color = "#d5d5d5";
 
 type Props = {
   tab: any;

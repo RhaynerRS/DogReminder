@@ -38,7 +38,7 @@ export function AllBreeds() {
             alignItems: "center",
           }}
         >
-          <Text style={{ marginRight: 35, color: "#EF6C6A" }} onPress={() =>HomeHandle()}>
+          <Text style={{ marginRight: 35, color: "#ff564f" }} onPress={() =>HomeHandle()}>
           {"<<"} Back to Home
           </Text>
           <Text style={[styles.titles, { color: "#3048EA" }]}>All Breeds</Text>

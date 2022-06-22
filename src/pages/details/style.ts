@@ -2,9 +2,15 @@ import { StyleSheet } from "react-native";
 import { getStatusBarHeight } from "react-native-iphone-x-helper";
 
 export const styles = StyleSheet.create({
-  container: {
+  containerDog: {
     flex: 1,
     backgroundColor: "#3048EA",
+    alignItems: "center",
+    justifyContent: "space-between",
+  },
+  containerCat: {
+    flex: 1,
+    backgroundColor: "#ff564f",
     alignItems: "center",
     justifyContent: "space-between",
   },
@@ -58,11 +64,18 @@ export const styles = StyleSheet.create({
     marginBottom: 15,
     color: "#fff",
   },
-  image: {
+  imageDog: {
     width: 367,
     height: 437,
     position: "absolute",
     top: 0,
+    left: 0,
+  },
+  imageCat: {
+    width: 367,
+    height: 263,
+    position: "absolute",
+    top: 195,
     left: 0,
   },
   info: {
@@ -72,7 +85,7 @@ export const styles = StyleSheet.create({
     width: "100%",
     height: "40%",
     borderTopLeftRadius: 35,
-    borderTopRightRadius: 35,
+    borderTopRightRadius: 0,
     paddingTop: 25,
     zIndex: 1,
     flexDirection: "row",

@@ -3,6 +3,7 @@ import { styles } from "./styles";
 import { Pet } from "../Pet";
 import FunSvg from "../../assets/fun.svg";
 import { useEffect, useState } from "react";
+import { AddPet } from "../AddPet";
 const config = require("../../../config/config.json");
 
 type Props = {
@@ -70,6 +71,7 @@ export function PetSelect({ end }: Props) {
           )
         )
       )}
+      <AddPet/>
     </ScrollView>
   );
 }

@@ -5,6 +5,7 @@ import { SignIn } from "../pages/signin";
 import { Details } from "../pages/details";
 import { AllBreeds } from "../pages/allBreeds";
 import { Tabs } from "../components/tabs";
+import { EditPet } from "../pages/EditPet";
 
 const Stack = createStackNavigator();
 
@@ -24,6 +25,7 @@ export function AuthRoutes() {
       <Stack.Screen name={"Details"} component={Details} />
       <Stack.Screen name={"AllBreeds"} component={AllBreeds} />
       <Stack.Screen name={"Tabs"} component={Tabs} />
+      <Stack.Screen name={"EditPet"} component={EditPet} />
     </Stack.Navigator>
   );
 }
