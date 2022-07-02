@@ -1,6 +1,7 @@
 import { StyleSheet } from "react-native";
 
-export const styles = StyleSheet.create({
+export const styles = StyleSheet.create(
+  {
   title: {
     fontSize: 36,
     fontFamily: "Poppins_400Regular",
@@ -13,11 +14,6 @@ export const styles = StyleSheet.create({
     backgroundColor: "#fff",
     alignItems: "center",
     justifyContent: "space-evenly",
-  },
-  image: {
-    width: 273,
-    height: 364,
-    transform: [{ translateY:40}],
   },
   text: {
     fontSize: 16,

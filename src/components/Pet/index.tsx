@@ -6,6 +6,7 @@ import React from "react";
 import Doggo from "../../assets/dog_template.png";
 import Catto from "../../assets/cat_template.png";
 import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
+import{useWindowDimensions} from "react-native";
 import {
   faPaw,
   faShop,
@@ -28,6 +29,7 @@ type Props = RectButtonProps & {
 };
 
 export function Pet({ name, breed, icon: Icon, end,petid,weight,birthdate,color,type, ...rest }: Props) {
+  const size=useWindowDimensions().height*.2232142857142857;
   const navigation = useNavigation();
 
   function PetHandle() {
@@ -40,7 +42,7 @@ export function Pet({ name, breed, icon: Icon, end,petid,weight,birthdate,color,
         colors={["#fff", "#3048EA"]}
         start={{ x: 0, y: 0 }}
         end={end}
-        style={styles.container}
+        style={[styles.container,{width:size,height:size}]}
       >
         <FontAwesomeIcon
           icon={faPaw}

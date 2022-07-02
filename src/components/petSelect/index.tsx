@@ -5,6 +5,7 @@ import FunSvg from "../../assets/fun.svg";
 import { useEffect, useState } from "react";
 import { AddPet } from "../AddPet";
 const config = require("../../../config/config.json");
+import{useWindowDimensions} from "react-native";
 
 type Props = {
   end: any;
@@ -12,7 +13,8 @@ type Props = {
 
 export function PetSelect({ end }: Props) {
   const [pets,setPets]= useState([]);
-  
+  const size=useWindowDimensions().height*.2232142857142857;
+
   useEffect(async () => {
     let reqs = await fetch(config.urlRootPhp + "GetPet.php", {
       method: "POST",
@@ -48,7 +50,7 @@ export function PetSelect({ end }: Props) {
 
   return (
     <ScrollView
-      style={styles.container}
+      style={{minHeight: size, maxHeight: size, paddingLeft: size*.12,}}
       horizontal
       showsHorizontalScrollIndicator={false}
       contentContainerStyle={{ paddingRight: 40 }}

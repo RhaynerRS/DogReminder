@@ -2,8 +2,8 @@ import { StyleSheet } from "react-native";
 
 export const styles = StyleSheet.create({
   title: {
-    fontSize: 40,
-    fontFamily: "Helvetica",
+    fontSize: 30,
+    fontFamily:"Poppins_400Regular",
     textAlign: "center",
   },
   container: {
@@ -21,7 +21,7 @@ export const styles = StyleSheet.create({
     alignItems: "center",
   },
   inline: {
-    marginTop: 8,
+    marginTop: 20,
     flexDirection: "row",
     textAlign: "center",
     justifyContent: "center",
