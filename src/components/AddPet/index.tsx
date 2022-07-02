@@ -14,10 +14,11 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { LinearGradient } from "expo-linear-gradient";
 import { useNavigation } from "@react-navigation/native";
+import{useWindowDimensions} from "react-native";
 
 export function AddPet() {
   const navigation = useNavigation();
-
+  const size=useWindowDimensions().height*.2232142857142857;
   function PetHandle() {
     navigation.navigate("Details" as never);
   }
@@ -30,18 +31,18 @@ export function AddPet() {
         colors={["#fff", "#3048EA"]}
         start={{ x: 0, y: 0 }}
         end={{ x: 0.3, y: -0.8 }}
-        style={styles.container}
+        style={[styles.container,{width:size,height:size}]}
       >
         <FontAwesomeIcon
           icon={faPaw}
-          size={150}
+          size={size*.75}
           style={{ color: "#F5F5F5", position: "absolute" }}
         />
         <View style={styles.content}>
           <FontAwesomeIcon
             icon={faPlus}
-            size={100}
-            style={{ color: "#3048EA" ,transform: [{ translateY:30}]}}
+            size={size*.5}
+            style={{ color: "#3048EA"}}
           />
           <View style={styles.data}>
             <Text style={styles.title}>Adicionar Pet</Text>
